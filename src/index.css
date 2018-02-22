@@ -1,0 +1,22 @@
+.error-msg{
+	color:red;
+	padding:10px 0 0 15px;
+}
+.am-tab-bar{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.fixed-header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.am-card{
+	margin-bottom: 10px;
+}
+.am-card img{
+	display: inline-block;
+	width: 60px;
+	height:60px;
+}
