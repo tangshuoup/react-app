@@ -4,27 +4,18 @@ import Logo from '../../component/logo/logo'
 import {connect} from 'react-redux'
 import {register} from '../../redux/user'
 import {List,InputItem,WingBlank,WhiteSpace,Button,Radio} from 'antd-mobile'
+import hocForm from '../../component/hoc-form/hoc-form'
 @connect(
 	state=>state.user,
 	{register}
 )
+@hocForm
 class Register extends Component{
-	constructor(props){
-		super(props)
-		this.state={
-			user:'',
-			psd:'',
-			againPsd:'',
-			type:'genius'
-		}
-	}
-	handleChage(key,value){
-		this.setState({
-			[key]:value
-		})
+	componentDidMount(){
+		this.props.handleChage('type','genius')
 	}
 	handleRegister=()=>{
-		this.props.register(this.state)
+		this.props.register(this.props.state)
 	}
 	render(){
 		const RadioItem = Radio.RadioItem
@@ -37,27 +28,27 @@ class Register extends Component{
 					<List>
 						{msg? <p className="error-msg">{msg}</p>:null}
 						<InputItem
-						onChange={v=>this.handleChage('user',v)}>用户名
+						onChange={v=>this.props.handleChage('user',v)}>用户名
 						</InputItem>
 						<WhiteSpace/>
 						<InputItem
 						type='password'
-						onChange={v=>this.handleChage('psd',v)}>密码
+						onChange={v=>this.props.handleChage('psd',v)}>密码
 						</InputItem>
 						<WhiteSpace/>
 						<InputItem
 						type='password'
-						onChange={v=>this.handleChage('againPsd',v)}>确认密码
+						onChange={v=>this.props.handleChage('againPsd',v)}>确认密码
 						</InputItem>
 						<WhiteSpace/>
 						<RadioItem 
-						checked={this.state.type==='genius'}
-						onChange={()=>this.handleChage('type','genius')}>
+						checked={this.props.state.type==='genius'}
+						onChange={()=>this.props.handleChage('type','genius')}>
 							牛人
 						</RadioItem>
 						<RadioItem 
-						checked={this.state.type==='boss'}
-						onChange={()=>this.handleChage('type','boss')}>
+						checked={this.props.state.type==='boss'}
+						onChange={()=>this.props.handleChage('type','boss')}>
 							BOSS
 						</RadioItem>				
 					</List>

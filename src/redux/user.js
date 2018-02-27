@@ -4,6 +4,7 @@ import {getRedirectPath} from '../untils'
 const ERROR_MSG='ERROR_MSG',
 	  LOGIN_DATA='LOGIN_DATA',
 	  AUTH_SUCCESS='AUTH_SUCCESS',
+	  LOGOUT='LOGOUT',
 	  initState={
 	  	redirectTo:'',
 	  	isAuth:'',
@@ -21,6 +22,8 @@ export function user (state=initState, action){
 			return {...state,...action.payload}	
 		case ERROR_MSG:
 			return {...state,isAuth:false,msg:action.msg}
+		case LOGOUT:
+			return {...initState,redirectTo:'/login'}
 		default:
 			return state
 	}
@@ -82,6 +85,9 @@ export function register({user,psd,againPsd,type}){
 				
 			})
 		}
+}
+export function logoutSubmit () {
+	return {type:LOGOUT}
 }
 
 

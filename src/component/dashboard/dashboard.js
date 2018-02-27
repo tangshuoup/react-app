@@ -4,15 +4,10 @@ import {NavBar} from 'antd-mobile'
 import NavLinkBar from '../navlink/navlink'
 import {Switch, Route} from 'react-router-dom'
 import Boss from '../../component/boss/boss'
-
-function Genius () {
-	return <h2>boss</h2>
-}
+import Genius from '../../component/genius/genius'
+import User from '../user/user'
 function Msg () {
 	return <h2>msg</h2>
-}
-function User () {
-	return <h2>user</h2>
 }
 @connect(
 	state=>state
@@ -50,11 +45,11 @@ class Dashboard extends React.Component {
 	      component:User	      
   		},
   	]
-  	const navTitle = navList.find(v=> v.path == pathname)
+  	const navTitle = navList.find(v=> v.path === pathname)
   	return (
   	  <div>
-        <NavBar className="fixed-header" mode="dark">{navTitle == undefined ? '' : navTitle.title}</NavBar> 	
-        <div style={{marginTop:50}}>
+        <NavBar className="fixed-header" mode="dark">{navTitle === undefined ? '' : navTitle.title}</NavBar> 	
+        <div style={{marginTop:50,marginBottom:60}}>
         	<Switch>
         		{navList.map(v=>(
 					<Route key={v.path} path={v.path} component={v.component}></Route>

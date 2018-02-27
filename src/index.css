@@ -5,11 +5,19 @@
 .am-tab-bar{
 	position: fixed;
 	bottom: 0;
+	z-index: 10;
 	width: 100%;
+	height: auto;
 }
 .fixed-header{
 	position: fixed;
 	top: 0;
+	z-index: 10;
+	width: 100%;
+}
+.fixed-footer{
+	position: fixed;
+	bottom: 0;
 	width: 100%;
 }
 .am-card{
@@ -19,4 +27,16 @@
 	display: inline-block;
 	width: 60px;
 	height:60px;
+}
+.user-img{
+	display: inline-block;
+	width: 100%;
+	height:100%;
+}
+#chat-pages .chat-me .am-list-extra{
+	flex-basis: auto;
+}
+#chat-pages .chat-me .am-list-content{
+	padding-right:15px;
+	text-align: right;
 }

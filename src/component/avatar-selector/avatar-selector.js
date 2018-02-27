@@ -19,7 +19,8 @@ class AvatarSelector extends Component {
 		const gridHeader=this.state.avatar.icon?(<div>
 			<span>
 			已选择头像
-			<img 
+			<img
+			alt="" 
 			src={this.state.avatar.icon} 
 			style={{width:40,height:40}}/>
 			</span>

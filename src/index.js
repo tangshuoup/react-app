@@ -7,8 +7,7 @@ import './config.js'
 import {
 	BrowserRouter,
 	Route,
-	Switch,
-	Redirect
+	Switch
 } from 'react-router-dom'
 import reducers from './reducer'
 
@@ -18,6 +17,7 @@ import Register from './container/register/register'
 import BossInfo from './container/bossinfo/bossinfo'
 import GeniusInfo from './container/geniusinfo/geniusinfo'
 import Dashboard from './component/dashboard/dashboard'
+import Chat from './component/chat/chat'
 import './reset.css'
 import './index.css'
 //开启redux的chrome调试工具
@@ -39,6 +39,7 @@ ReactDom.render(
 					<Route path='/bossinfo' component={BossInfo}></Route>
 					<Route path='/login' component={Login}></Route>
 					<Route path='/register' component={Register}></Route>
+					<Route path='/chat/:user' component={Chat}></Route>
 					<Route component={Dashboard}></Route>
 				</Switch>
 			</div>
