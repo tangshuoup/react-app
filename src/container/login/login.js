@@ -9,6 +9,7 @@ import hocForm from '../../component/hoc-form/hoc-form'
 	state=>state.user,
 	{login}
 )
+
 @hocForm
 class Login extends Component{
 	register=()=>{
